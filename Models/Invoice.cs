@@ -9,21 +9,21 @@ namespace BillTracker.Models
     public class Invoice
     {
         [Key]
-        int InvoiceNumber { get; set; }
+        public int InvoiceNumber { get; set; }
 
-        int TerminanlID { get; set; }
+        public int TerminanlID { get; set; }
 
-        string ProcessedBy { get; set; }
+        public string ProcessedBy { get; set; }
 
-        Product Product { get; set; }
+        public Product Product { get; set; }
 
-        string ProdDesc { get; set; }
+        public string ProdDesc { get; set; }
 
-        double SellingPrice { get; set; }
+        public double SellingPrice { get; set; }
 
-        DateTime InvcDateTime { get; set; }
+        public DateTime InvcDateTime { get; set; }
 
-        List<ItemList> provinceList = new List<ItemList>()
+        public List<ItemList> provinceList = new List<ItemList>()
         {
         new ItemList { Text = "Alberta", Value = 1 },
         new ItemList { Text = "BC", Value = 2 },
@@ -34,22 +34,22 @@ namespace BillTracker.Models
 
 
 
-        double GST { get; set; }
+        public double GST { get; set; }
 
-        double HST { get; set; }
+        public double HST { get; set; }
 
-        double PST { get; set; }
+        public double PST { get; set; }
 
-        double TotalTax { get; set; }
+        public double TotalTax { get; set; }
 
-        string Notes { get; set; }
+        public string Notes { get; set; }
 
-        double SubTotal { get; set; }
+        public double SubTotal { get; set; }
 
-        double Total { get; set; }
+        public double Total { get; set; }
 
-        int GSTHSTRefNo { get; set; }
+        public int GSTHSTRefNo { get; set; }
 
-        string CustomerInstructions { get; set; }
+        public string CustomerInstructions { get; set; }
     }
 }

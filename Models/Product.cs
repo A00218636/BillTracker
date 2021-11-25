@@ -9,20 +9,20 @@ namespace BillTracker.Models
     public class Product
     {
         [Key]
-        string ID { get; set; }
+        public string ID { get; set; }
 
-        string Description { get; set; }
+        public string Description { get; set; }
 
-        Category ProdCategory { get; set; }
+        public Category ProdCategory { get; set; }
 
-        private class Category
+        public class Category
         {
             [Key]
-            string ID { get; set; }
-            string Description { get; set; }
+            public string ID { get; set; }
+            public string Description { get; set; }
         }
 
-       double Discount { get; set; }
+        public double Discount { get; set; }
 
 
     }
