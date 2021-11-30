@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BillTracker.Models;
 
 namespace BillTracker.Models
 {
@@ -13,6 +14,7 @@ namespace BillTracker.Models
         : base(options)
         {
         }
+        public DbSet<BillTracker.Models.Product> Product { get; set; }
 
     }
 }

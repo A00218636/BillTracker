@@ -24,6 +24,8 @@ namespace BillTracker.Models
 
         public double Discount { get; set; }
 
+        
+
 
     }
 }

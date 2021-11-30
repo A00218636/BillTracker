@@ -1,0 +1,113 @@
+﻿@model IEnumerable<BillTracker.Models.Invoice>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TerminanlID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcessedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SellingPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InvcDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GST)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HST)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PST)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalTax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GSTHSTRefNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerInstructions)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TerminanlID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcessedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProdDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SellingPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvcDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GST)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HST)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PST)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalTax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GSTHSTRefNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerInstructions)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.InvoiceNumber">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.InvoiceNumber">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.InvoiceNumber">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,99 @@
+﻿@page
+@model BillTracker.Views.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Invoice</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Invoice.TerminanlID" class="control-label"></label>
+                <input asp-for="Invoice.TerminanlID" class="form-control" />
+                <span asp-validation-for="Invoice.TerminanlID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invoice.ProcessedBy" class="control-label"></label>
+                <input asp-for="Invoice.ProcessedBy" class="form-control" />
+                <span asp-validation-for="Invoice.ProcessedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invoice.ProdDesc" class="control-label"></label>
+                <input asp-for="Invoice.ProdDesc" class="form-control" />
+                <span asp-validation-for="Invoice.ProdDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invoice.SellingPrice" class="control-label"></label>
+                <input asp-for="Invoice.SellingPrice" class="form-control" />
+                <span asp-validation-for="Invoice.SellingPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invoice.InvcDateTime" class="control-label"></label>
+                <input asp-for="Invoice.InvcDateTime" class="form-control" />
+                <span asp-validation-for="Invoice.InvcDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invoice.GST" class="control-label"></label>
+                <input asp-for="Invoice.GST" class="form-control" />
+                <span asp-validation-for="Invoice.GST" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invoice.HST" class="control-label"></label>
+                <input asp-for="Invoice.HST" class="form-control" />
+                <span asp-validation-for="Invoice.HST" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invoice.PST" class="control-label"></label>
+                <input asp-for="Invoice.PST" class="form-control" />
+                <span asp-validation-for="Invoice.PST" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invoice.TotalTax" class="control-label"></label>
+                <input asp-for="Invoice.TotalTax" class="form-control" />
+                <span asp-validation-for="Invoice.TotalTax" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invoice.Notes" class="control-label"></label>
+                <input asp-for="Invoice.Notes" class="form-control" />
+                <span asp-validation-for="Invoice.Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invoice.SubTotal" class="control-label"></label>
+                <input asp-for="Invoice.SubTotal" class="form-control" />
+                <span asp-validation-for="Invoice.SubTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invoice.Total" class="control-label"></label>
+                <input asp-for="Invoice.Total" class="form-control" />
+                <span asp-validation-for="Invoice.Total" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invoice.GSTHSTRefNo" class="control-label"></label>
+                <input asp-for="Invoice.GSTHSTRefNo" class="form-control" />
+                <span asp-validation-for="Invoice.GSTHSTRefNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invoice.CustomerInstructions" class="control-label"></label>
+                <input asp-for="Invoice.CustomerInstructions" class="form-control" />
+                <span asp-validation-for="Invoice.CustomerInstructions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
