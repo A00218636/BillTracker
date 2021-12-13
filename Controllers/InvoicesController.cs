@@ -6,6 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BillTracker.Models;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using OfficeOpenXml;
+using ExcelDataReader;
+using System.Data;
 
 namespace BillTracker.Controllers
 {
@@ -148,5 +153,69 @@ namespace BillTracker.Controllers
         {
             return _context.Invoices.Any(e => e.InvoiceNumber == id);
         }
+
+
+        [HttpPost]
+
+        [ValidateAntiForgeryToken]
+
+        public async void UploadExcel(IFormFile file)
+        {
+            // public async Task<List<Invoice>> UploadFile(IFormFile file)
+            using (var filestream = new MemoryStream())
+            {
+                await file.CopyToAsync(filestream);
+                using (var package = new ExcelPackage(filestream))
+                {
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
+                    var rowcount = worksheet.Dimension.Rows;
+
+                    IExcelDataReader reader = null;
+                    DataTable dt = new DataTable();
+                    DataRow row;
+                    DataTable dt_ = new DataTable();
+                    try
+                    {
+                        dt_ = reader.AsDataSet().Tables[0];
+                        for (int i = 0; i < dt_.Columns.Count; i++)
+                        {
+                            dt.Columns.Add(dt_.Rows[0][i].ToString());
+                        }
+                        int rowcounter = 0;
+                        for (int row_ = 1; row_ < dt_.Rows.Count; row_++)
+                        {
+                            row = dt.NewRow();
+
+                            for (int col = 0; col < dt_.Columns.Count; col++)
+                            {
+                                row[col] = dt_.Rows[row_][col].ToString();
+                                rowcounter++;
+                            }
+                            dt.Rows.Add(row);
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        ModelState.AddModelError("File", "Unable to Upload file!");
+                        //return View();
+                    }
+
+                    DataSet result = new DataSet();
+                    result.Tables.Add(dt);
+                    reader.Close();
+                    reader.Dispose();
+                    DataTable tmp = result.Tables[0];
+                    // Session["tmpdata"] = tmp;  //store datatable into session
+
+
+                }
+
+
+            }
+
+        }
+
     }
-}
+    }
+

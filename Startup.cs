@@ -54,7 +54,7 @@ namespace BillTracker
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Invoices}/{action=Index}/{id?}");
             });
         }
     }

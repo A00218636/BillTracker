@@ -9,6 +9,18 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+@using (Html.BeginForm("UploadExcel", "Invoices", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "return myFunction()" }))
+{
+    <div class="form-group">
+        <div class="control-label col-md-2">Excel:</div>
+        <div class="col-md-10">
+            <input type="file" id="FileUpload" name="FileUpload" class="" />
+        </div>
+    </div>
+    <a href="/User/DownloadExcel/" name="Download in Excel format" />
+
+}
 <table class="table">
     <thead>
         <tr>
@@ -58,56 +70,58 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TerminanlID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProcessedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProdDesc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SellingPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InvcDateTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GST)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HST)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PST)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalTax)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Notes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Total)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GSTHSTRefNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerInstructions)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.InvoiceNumber">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.InvoiceNumber">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.InvoiceNumber">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TerminanlID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProcessedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProdDesc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SellingPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvcDateTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GST)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HST)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PST)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalTax)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GSTHSTRefNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerInstructions)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.InvoiceNumber">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.InvoiceNumber">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.InvoiceNumber">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
